@@ -20,23 +20,21 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <h1 id="title">BEFORE External Payment Method.</h1>
-        <a id="open_window" href="#">Open Window</a>
+        <h1>Inside External Payment Method.</h1>
+        <a id="close_window" href="#">reload page and CLose popup</a>
 
-        <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
         <script>
-          function updateOrder(){
-            alert("updateOrder");
-            $("#title").text = "AFTER External Payment Method.";
+          function refreshAndClose() {
+              window.opener.location.reload(true);
+              // window.opener.updateParentWindow();
+              window.close();
           }
           $(document).ready(function(){
-            $("#open_window").click(function(){
-              window.open("popup.html","windowName", "width=500,height=1000,scrollbars=no");
-              window.updateParentWindow = function(){
-                $("#title").text = "AFTER External Payment Method.";
-              };
+            $("#close_window").click(function(){
+              refreshAndClose();
             })
           });
         </script>
