@@ -27,15 +27,14 @@
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
         <script>
-          function updateOrder(){
-            alert("updateOrder");
-            $("#title").text = "AFTER External Payment Method.";
-          }
+          $(document).css("background-color","red");
           $(document).ready(function(){
+            $("body").css("background-color","yellow");
             $("#open_window").click(function(){
-              window.open("popup.html","windowName", "width=500,height=1000,scrollbars=no");
+              window.open("popup.html","Payment", "width=500,height=500,scrollbars=no");
               window.updateParentWindow = function(){
-                $("#title").text = "AFTER External Payment Method.";
+                $("body").css("background-color","green");
+                $("#title").text("AFTER External Payment Method.");
               };
             })
           });
